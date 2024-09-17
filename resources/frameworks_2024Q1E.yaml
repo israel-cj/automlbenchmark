@@ -6,45 +6,53 @@
 
 AutoGluon:
   abstract: true
-  version: "1.1.2b20240913"
+  version: "1.1.2b20240917"
 
 AutoGluon_benchmark:
   extends: AutoGluon
   description: "AutoGluon with 'best_quality' preset provides the most accurate overall predictor"
   params:
     _save_artifacts: ['leaderboard', 'info']
-    callbacks: True
     presets: best_quality
     _leaderboard_test: True
+    callbacks:
+      EarlyStoppingEnsembleCallback:
+        patience: 5
 
 AutoGluon_hq:
   extends: AutoGluon
   description: "AutoGluon with 'high_quality' preset provides generally fast inference speed with high accuracy"
   params:
     _save_artifacts: ['leaderboard', 'info']
-    callbacks: True
     presets: ['high_quality', 'optimize_for_deployment']
     _leaderboard_test: True
+    callbacks:
+      EarlyStoppingEnsembleCallback:
+        patience: 5
 
 AutoGluon_hq_il001:
   extends: AutoGluon
   description: "AutoGluon ~3x faster inference at slight performance loss to 'high quality' (self-reported)."
   params:
     _save_artifacts: ['leaderboard', 'info']
-    callbacks: True
     presets: ['high_quality', 'optimize_for_deployment']
     _leaderboard_test: True
     infer_limit: 0.0001
+    callbacks:
+      EarlyStoppingEnsembleCallback:
+        patience: 5
 
 AutoGluon_fi_ft:
   extends: AutoGluon
   description: "AutoGluon for decent accuracy, fast inference, and extremely fast training."  
   params:
     _save_artifacts: ['leaderboard', 'info']
-    callbacks: True
     presets: 'medium_quality'
     _leaderboard_test: True
     infer_limit: 0.0001
+    callbacks:
+      EarlyStoppingEnsembleCallback:
+        patience: 5
 
 autosklearn:
   version: '0.15.0'
