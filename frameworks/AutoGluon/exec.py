@@ -102,6 +102,7 @@ def run(dataset, config):
         ).fit(
             train_data=train_path,
             time_limit=time_limit,
+            memory_limit = round(config.max_mem_size_mb / 1024),
             **training_params
         )
 
