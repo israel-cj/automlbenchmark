@@ -49,10 +49,11 @@ python runbenchmark.py flaml:2024Q1E openml/s/269
 ```
 
 ## Results and Figures
-The results are already available in the folder `figures_repository/data`. All the figures in the paper can be reproduced from the folder `figures_repository/notebooks_finale`. The only two compulsory notebooks to run first are:
+The results are already available in the link, please put the two csv files in `figures_repository/data`. All the figures in the paper can be reproduced from the folder `figures_repository/notebooks_finale`. The only two compulsory notebooks to run first are:
 
 ```bash
 raw_to_clean.ipynb
 raw_to_clean_early.ipynb
 ```
-But they were already executed, you can go directly to the notebooks to generate the figures.
+These notebooks prepare the data for any other notebook.
+
