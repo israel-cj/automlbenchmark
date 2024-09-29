@@ -44,8 +44,8 @@ For early stopping, the following frameworks/setups were evaluated. Use the same
 
 E.g.
 ```bash
-python runbenchmark.py flaml:2024Q1 openml/s/271
-python runbenchmark.py flaml:2024Q1 openml/s/269
+python runbenchmark.py flaml:2024Q1E openml/s/271
+python runbenchmark.py flaml:2024Q1E openml/s/269
 ```
 
 ## Results and Figures
