@@ -1,30 +1,59 @@
-# AutoML Benchmark
-The OpenML AutoML Benchmark provides a framework for evaluating and comparing open-source AutoML systems.  
-The system is *extensible* because you can [add your own](https://openml.github.io/automlbenchmark/docs/extending/) 
-AutoML frameworks and datasets. For a thorough explanation of the benchmark, and evaluation of results, 
-you can read our [paper](https://arxiv.org/abs/2207.12560).
+# AutoML Benchmark shorter runs
 
-Automatic Machine Learning (AutoML) systems automatically build machine learning pipelines
-or neural architectures in a data-driven, objective, and automatic way. They automate a lot 
-of drudge work in designing machine learning systems, so that better systems can be developed, 
-faster. However, AutoML research is also slowed down by two factors:
+The OpenML AutoML Benchmark provides a framework for evaluating and comparing open-source AutoML systems.
 
-* We currently lack standardized, easily-accessible benchmarking suites of tasks (datasets) that are curated to reflect important problem domains, practical to use, and sufficiently challenging to support a rigorous analysis of performance results. 
+## About This Repository
 
-* Subtle differences in the problem definition, such as the design of the hyperparameter search space or the way time budgets are defined, can drastically alter a task’s difficulty. This issue makes it difficult to reproduce published research and compare results from different papers.
+This repository is a fork of the original [AMLB repository](https://github.com/openml/automlbenchmark). The packages and setup are the same as in the original repository.
 
-This toolkit aims to address these problems by setting up standardized environments for in-depth experimentation with a wide range of AutoML systems.
+## Replicating Results
 
-Website: <https://openml.github.io/automlbenchmark/index.html>
+To replicate the results in shorter runs of the AMLB, use the different time constraints `[5min8c_gp3, 10min8c_gp3, 30min8c_gp3, 1h8c_gp3]` over all the frameworks evaluated in the paper:
 
-Documentation: <https://openml.github.io/automlbenchmark/docs/index.html>
+- `autosklearn`
+- `autosklearn2`
+- `flaml`
+- `GAMA_benchmark`
+- `H2OAutoML`
+- `lightautoml`
+- `mljarsupervised_benchmark`
+- `NaiveAutoML`
+- `TPOT`
+- `FEDOT`
+- `AutoGluon_benchmark`
+- `AutoGluon_hq`
+- `AutoGluon_hq_il001`
 
-Installation: <https://openml.github.io/automlbenchmark/docs/getting_started/>
+For example, to run the benchmark for `flaml` on two suites (271 classification and 269 regression), use the following commands:
 
-### Features:
+```bash
+python runbenchmark.py flaml:2024Q1 openml/s/271
+python runbenchmark.py flaml:2024Q1 openml/s/269
+```
+## Early Stopping
+For early stopping, the following frameworks/setups were evaluated. Use the same procedure as above but with the setup `E`:
 
-* Curated suites of benchmarking datasets from [OpenML](https://www.openml.org) ([regression](https://www.openml.org/s/269), [classification](https://www.openml.org/s/271)).
-* Includes code to benchmark a number of [popular AutoML systems](https://openml.github.io/automlbenchmark/frameworks.html) on regression and classification tasks.
-* [New AutoML systems can be added](https://openml.github.io/automlbenchmark/docs/extending/framework/)
-* Experiments can be run in Docker or Singularity containers
-* Execute experiments locally or on AWS
+- `AutoGluon_benchmark`
+- `AutoGluon_hq`
+- `AutoGluon_hq_il001`
+- `AutoGluon_fi_ft`
+- `flaml`
+- `H2OAutoML`
+- `TPOT`
+- `FEDOT`
+
+E.g.
+```bash
+python runbenchmark.py flaml:2024Q1 openml/s/271
+python runbenchmark.py flaml:2024Q1 openml/s/269
+```
+
+## Results and Figures
+The results are already available in the folder `figures_repository/data`. All the figures in the paper can be reproduced from the folder `figures_repository/notebooks_finale`. The only two compulsory notebooks to run first are:
+
+```bash
+raw_to_clean.ipynb
+raw_to_clean_early.ipynb
+```
+These notebooks prepare the data for any other notebook.
+
