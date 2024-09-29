@@ -49,6 +49,20 @@ python runbenchmark.py flaml:2024Q1E openml/s/269
 ```
 
 ## Results and Figures
+
+To reproduce the figures, we recommend using an independent virtual environment with Python 3.9:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+Install the necessary dependencies:
+```bash
+python -m pip install --upgrade pip wheel
+python -m pip install -r requirements.txt
+python -m pip install "Orange3==3.30.0" --no-deps
+```
+
 The results are already available in [this link](https://drive.google.com/file/d/1IH6ZqUETopL-5x8Qgm7wq6vJT_DVfVI3/view?usp=sharing), please put the two csv files in `figures_repository/data`. All the figures in the paper can be reproduced from the folder `figures_repository/notebooks_finale`. The only two compulsory notebooks to run first are:
 
 ```bash
