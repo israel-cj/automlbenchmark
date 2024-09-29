@@ -55,5 +55,4 @@ The results are already available in the folder `figures_repository/data`. All t
 raw_to_clean.ipynb
 raw_to_clean_early.ipynb
 ```
-These notebooks prepare the data for any other notebook.
-
+But they were already executed, you can go directly to the notebooks to generate the figures.
